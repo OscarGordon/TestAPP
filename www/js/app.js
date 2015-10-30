@@ -51,6 +51,17 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
+
+  .state('app.repmax', {
+      url: '/repmax',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/repmax.html',
+          controller: 'RepMaxCtrl'
+        }
+      }
+    })
+
     .state('app.playlists', {
       url: '/playlists',
       views: {

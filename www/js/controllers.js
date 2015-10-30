@@ -58,6 +58,10 @@ angular.module('starter.controllers', [])
   };
 })
 
+.controller('RepMaxCtrl', function($scope){
+
+})
+
 .controller('PlaylistsCtrl', function($scope) {
   $scope.playlists = [
     { title: 'Reggae', id: 1 },
