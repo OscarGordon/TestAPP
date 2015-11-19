@@ -73,5 +73,23 @@ angular.module('starter.controllers', [])
   ];
 })
 
+.controller('ExercisesCtrl', function($scope) {
+  var ExerciseModel = Parse.Object.extend("Exercise");
+  var ExerciseQuery = new Parse.Query(ExerciseModel);
+  ExerciseQuery.equalTo("category","gymnastics");
+  ExerciseQuery.find({
+    success: function(results){
+      $scope.exercises = results;
+      alert("successfully retrieved " + results.length + " exercises");
+      alert(results[1].get('name'));
+      console.log(results);
+      console.log($scope.exercises);
+    },
+    error: function(error) {
+      alert("Error: " + error.code + " " + error.message);
+    }
+  });
+})
+
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 });
