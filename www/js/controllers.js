@@ -73,17 +73,22 @@ angular.module('starter.controllers', [])
   ];
 })
 
+.controller('WelcomeCtrl', function($scope){
+  
+})
+
 .controller('ExercisesCtrl', function($scope) {
   var ExerciseModel = Parse.Object.extend("Exercise");
   var ExerciseQuery = new Parse.Query(ExerciseModel);
   ExerciseQuery.equalTo("category","gymnastics");
+  ExerciseQuery.ascending('name');
   ExerciseQuery.find({
     success: function(results){
       $scope.exercises = results;
-      alert("successfully retrieved " + results.length + " exercises");
-      alert(results[1].get('name'));
-      console.log(results);
-      console.log($scope.exercises);
+      //alert("successfully retrieved " + results.length + " exercises");
+      //alert(results[1].get('name'));
+      //console.log(results);
+      //console.log($scope.exercises);
     },
     error: function(error) {
       alert("Error: " + error.code + " " + error.message);
